@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Virtual 3D Office</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- 3D Scene Viewport -->
+    <div id="canvas-container"></div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+      <div class="spinner"></div>
+      <div class="loading-text">Loading 3D Workspace...</div>
+    </div>
+
+    <!-- Start / Enter Screen -->
+    <div id="start-screen">
+      <div class="dialog-box">
+        <h1>VIRTUAL 3D OFFICE</h1>
+        <p>Interactive First-Person 3D Office Environment powered by Three.js</p>
+
+        <div class="controls-grid">
+          <div class="control-item"><kbd>W A S D</kbd> <span>Walk</span></div>
+          <div class="control-item"><kbd>MOUSE</kbd> <span>Look around</span></div>
+          <div class="control-item"><kbd>SHIFT</kbd> <span>Sprint / Run</span></div>
+          <div class="control-item"><kbd>SPACE</kbd> <span>Jump</span></div>
+          <div class="control-item"><kbd>CLICK</kbd> <span>Interact</span></div>
+          <div class="control-item"><kbd>ESC</kbd> <span>Release pointer</span></div>
+        </div>
+
+        <button id="btn-enter" class="btn-primary">ENTER OFFICE</button>
+      </div>
+    </div>
+
+    <!-- Pause / Pointer Lock Release Menu -->
+    <div id="pause-menu">
+      <div class="dialog-box">
+        <h1>PAUSED</h1>
+        <p>Pointer released. Click below or press ESC to resume walking.</p>
+        <button id="btn-resume" class="btn-primary">RESUME EXPLORING</button>
+      </div>
+    </div>
+
+    <!-- HUD Overlay -->
+    <div id="hud">
+      <!-- Center Crosshair -->
+      <div id="crosshair"></div>
+
+      <!-- Interaction Prompt on Object Hover -->
+      <div id="interaction-prompt">
+        <span class="key-hint">Click</span>
+        <span class="prompt-text">Interact</span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="hud-actions">
+        <button id="btn-audio" class="hud-btn">🔊 Audio ON</button>
+        <button id="btn-help" class="hud-btn">❓ Help / Keys</button>
+      </div>
+
+      <!-- Real-time 2D Minimap -->
+      <div class="minimap-container">
+        <div class="minimap-title">OFFICE RADAR</div>
+        <canvas id="minimap-canvas" width="160" height="110"></canvas>
+        <div id="zone-indicator" class="zone-badge">📍 Open Workstations</div>
+      </div>
+
+      <!-- Key Instructions HUD pill -->
+      <div id="instructions-overlay" class="controls-hud">
+        <span><kbd>WASD</kbd> Move</span>
+        <span><kbd>Shift</kbd> Run</span>
+        <span><kbd>Space</kbd> Jump</span>
+        <span><kbd>Click</kbd> Interact</span>
+        <span><kbd>ESC</kbd> Pause</span>
+      </div>
+    </div>
+
+    <!-- Interactive Object Details Modal -->
+    <div id="modal-container">
+      <div class="modal-dialog">
+        <button id="modal-close" class="modal-close-btn">&times;</button>
+        <div id="modal-content">
+          <!-- Filled dynamically via UIController -->
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
